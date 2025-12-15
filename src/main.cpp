@@ -1,18 +1,49 @@
 #include <Arduino.h>
+#include "constants.h"
+#include "display.h"
+#include "handlers.h"
 
-// put function declarations here:
-int myFunction(int, int);
+// Variables
+bool lookAtScreen = true;
+bool paused = true;
+int currentMinutes = startingMinutes;
+int currentSeconds = startingSeconds;
+unsigned long previousMillis = 0;
 
+// Function definitions
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  // Initialize digital pins as outputs
+  for(int i = 0; i < numberOfSegments; i++) {
+    pinMode(segmentPins[i], OUTPUT);
+    digitalWrite(segmentPins[i], LOW);
+  }
+
+  for(int i = 0; i < 2; i++) {
+    pinMode(minutePins[i], OUTPUT);
+    pinMode(secondPins[i], OUTPUT);
+  }
+  
+  // Initialize buzzer pin
+  pinMode(buzzerPin, OUTPUT);
+
+  // Initialize button pins
+  pinMode(pauseButtonPin, INPUT_PULLUP);
+  pinMode(resetButtonPin, INPUT_PULLUP);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
+  showMinutes(currentMinutes);
+  showSeconds(currentSeconds);
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  if(digitalRead(pauseButtonPin) == LOW) {
+    handlePauseButton(paused);
+  }
+
+  if(digitalRead(resetButtonPin) == LOW) {
+    handleResetButton(paused, currentMinutes, currentSeconds, lookAtScreen);
+  }
+
+  if(!paused) {
+    handleCountdown(currentMinutes, currentSeconds, previousMillis, lookAtScreen, paused);
+  }
 }
