@@ -5,10 +5,12 @@
 
 void timerChange(int &currentMinutes, int &currentSeconds, bool &lookAtScreen) {
   if(!lookAtScreen) {
+    // Change it back to 20 minutes as user should now be done resting
     currentMinutes = startingMinutes;
     currentSeconds = startingSeconds;
     lookAtScreen = true;
   } else {
+    // Change it to 20 seconds for the countdown for user to look away
     currentMinutes = 0;
     currentSeconds = countdownDurationSeconds;
     lookAtScreen = false;
