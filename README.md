@@ -17,6 +17,7 @@ button resets the cycle. You can also pause at any point by hitting the pause bu
 ## How do I use this?
 
 I used PIO to build and flash this onto my arduino. After that, just turn on the arduino with a power source of your choosing, and then hit the pause button.
+You can also use the firmware.elf file that I uploaded in the release folder, that should be the right output of the PIO build process.
 
 ## Can't I just use a timer?
 
@@ -24,10 +25,14 @@ Yes. There's nothing I like more than hyper specialized devices though so that's
 
 ## Is there a schematic for this?
 
-Yes, sort of? I've never worked with schematics before so it's probably terrible and awful. I'll... see about fixing it later.
+Yes, sort of? I've never worked with schematics before so it's probably terrible and awful.
 
 ![Schematic](Schematic/schematic.png)
 
+"why are you using those weird buttons/switches/parts?" Answer: Those were the parts I had from my kit and/or the parts available on EasyEDA so I could order it easily.
+
 ## What about a PCB?
 
-I'm working on it. As part of this project I'm going to trrrry and hook it up to a PCB and make it mini/portable since I think that would be cool.
+The gerber files are created in the Schematic folder, you should be able to use that to order from your preferred PCB manufacturer.
+Disclosure: I am NOT a PCB designer and this is literally the first PCB I've ever made, I haven't even tested it yet, these parts take a while
+to come in. 
