@@ -19,6 +19,7 @@ button resets the cycle. You can also pause at any point by hitting the pause bu
 I used PIO to build and flash this onto my arduino. After that, just turn on the arduino with a power source of your choosing, and then hit the pause button.
 You can also use the firmware.elf file that I uploaded in the release folder, that should be the right output of the PIO build process.
 
+
 ## Can't I just use a timer?
 
 Yes. There's nothing I like more than hyper specialized devices though so that's why I made this.
@@ -36,3 +37,11 @@ Yes, sort of? I've never worked with schematics before so it's probably terrible
 The gerber files are created in the Schematic folder, you should be able to use that to order from your preferred PCB manufacturer.
 Disclosure: I am NOT a PCB designer and this is literally the first PCB I've ever made, I haven't even tested it yet, these parts take a while
 to come in. 
+
+This is what it looks like when built: ![Ssample NANO build](Schematic/Sample%20NANO%20build.jpg)
+
+Note: If you plan on using a nano board like I did in combination with my schematic, please note
+that this platform io configuration is not right! In fact I have no idea what the right one is!
+If you do, please let me know! I used Arduino IDE and the Nano base board and that seemed to work though.
+
+But I've compiled it with arduino IDE and uploaded it here anyways. It's the nano version under releases.
